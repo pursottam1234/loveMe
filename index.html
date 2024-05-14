@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoveMEOrNote?</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: linear-gradient(120deg, #f6d365, #fda085);
+        background-color: #f6d365;
+      }
+      .wrapper {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        opacity: 0.8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url("loveMeBackgroundImage.jpg");
+        background-size: cover;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .btn-group {
+        padding: 1.2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+      }
+      button {
+        position: absolute;
+        width: 130px;
+        height: 40px;
+        font-size: 1.2rem;
+        color: #1d3ce9;
+        font-weight: 600;
+        border: 2px solid #1d3ce9;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        background-color: aliceblue;
+      }
+      .yes-btn {
+        left: 20px;
+        justify-content: center;
+        text-align: center;
+      }
+      .no-btn {
+        right: 20px;
+        justify-content: center;
+        text-align: center;
+      }
+      .question{
+        font-size: 4rem;
+        font-weight: 600;
+        text-align: center;
+        background: -webkit-linear-gradient(rgb(241, 35, 12), rgb(94, 4, 212));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        .wrapper {
+          width: 80%;
+          height: 80%;
+        }
+        .question {
+          font-size: 3rem;
+        }
+        button {
+          width: 100px;
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .wrapper {
+          width: 90%;
+          height: 90%;
+        }
+        .question {
+          font-size: 2rem;
+        }
+        button {
+          width: 80px;
+          font-size: 0.8rem;
+        }
+        .btn-group {
+          flex-direction: column;
+          align-items: center;
+        }
+        .yes-btn, .no-btn {
+          position: static;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <div class="wrapper">
+        <i class="fa-solid fa-heart"></i>
+        <h2 class="question"><i>Do you Love me?</i></h2>
+        <div class="btn-group">
+          <button class="yes-btn">Yes</button>
+          <button class="no-btn">No</button>
+        </div>
+      </div>
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+      const question = document.querySelector(".question");
+      const yesBtn = document.querySelector(".yes-btn");
+      const noBtn = document.querySelector(".no-btn");
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const noBtnRect = noBtn.getBoundingClientRect();
+      yesBtn.addEventListener('click', () => {
+        question.innerHTML = 'Yes, I Love You Too My 💗';
+      });
+      noBtn.addEventListener('mouseover', () => {
+        const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
+        const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) + 1;
+        noBtn.style.left = i + 'px';
+        noBtn.style.top = j + 'px';
+      });
+    </script>
+  </body>
+</html>
