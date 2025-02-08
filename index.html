@@ -40,6 +40,10 @@
         justify-content: space-around;
         margin-top: 100px;
       }
+      .btn-group button:hover {
+        background-color: #1d3ce9;
+        color: #fff;
+      }
       button {
         position: absolute;
         width: 130px;
@@ -64,7 +68,14 @@
         justify-content: center;
         text-align: center;
       }
-      .question{
+      /* .fa-heart {
+        font-size: 10rem;
+        color: #f00;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      } */
+      .question {
         font-size: 4rem;
         font-weight: 600;
         text-align: center;
@@ -103,7 +114,8 @@
           flex-direction: column;
           align-items: center;
         }
-        .yes-btn, .no-btn {
+        .yes-btn,
+        .no-btn {
           position: static;
           margin: 10px 0;
         }
@@ -111,14 +123,14 @@
     </style>
   </head>
   <body>
-      <div class="wrapper">
-        <i class="fa-solid fa-heart"></i>
-        <h2 class="question"><i>Do you Love me?</i></h2>
-        <div class="btn-group">
-          <button class="yes-btn">Yes</button>
-          <button class="no-btn">No</button>
-        </div>
+    <div class="wrapper">
+      <i class="fa-solid fa-heart"></i>
+      <h2 class="question"><i>Do you Love me?</i></h2>
+      <div class="btn-group">
+        <button class="yes-btn">Yes</button>
+        <button class="no-btn">No</button>
       </div>
+    </div>
     <script>
       const wrapper = document.querySelector(".wrapper");
       const question = document.querySelector(".question");
@@ -126,14 +138,22 @@
       const noBtn = document.querySelector(".no-btn");
       const wrapperRect = wrapper.getBoundingClientRect();
       const noBtnRect = noBtn.getBoundingClientRect();
-      yesBtn.addEventListener('click', () => {
-        question.innerHTML = 'Yes, I Love You Too My 💗';
+      yesBtn.addEventListener("click", () => {
+        question.innerHTML = "Yes, I Love You Too My 💗";
       });
-      noBtn.addEventListener('mouseover', () => {
-        const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
-        const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) + 1;
-        noBtn.style.left = i + 'px';
-        noBtn.style.top = j + 'px';
+      noBtn.addEventListener("mouseover", () => {
+        const i =
+          Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
+        const j =
+          Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) +
+          1;
+        noBtn.style.left = i + "px";
+        noBtn.style.top = j + "px";
+      });
+      yesBtn.addEventListener("click", () => {
+        question.innerHTML = "Yes, I Love You Too My 💗";
+        noBtn.remove(); // ✅ This removes the "No" button when "Yes" is clicked
+        yesBtn.remove(); // ✅ This removes the "Yes" button when "Yes" is clicked
       });
     </script>
   </body>
